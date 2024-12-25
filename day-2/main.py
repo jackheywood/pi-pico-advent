@@ -7,23 +7,35 @@ amber = Pin(19, Pin.OUT)
 green = Pin(20, Pin.OUT)
 
 counter = 1
-sleepTime = 0.1
+sleepTime = 0.33333
 
-while counter < 100:
+while counter <= 10:
     print(counter)
     
-    # LEDs all on
+    # Red on
     red.value(1)
-    amber.value(1)
-    green.value(1)
+    amber.value(0)
+    green.value(0)
 
     time.sleep(sleepTime)
 
-    # LEDs all off
+    # Amber on
+    red.value(0)
+    amber.value(1)
+    green.value(0)
+    
+    time.sleep(sleepTime)
+
+    # Green on
     red.value(0)
     amber.value(0)
-    green.value(0)
+    green.value(1)
     
     time.sleep(sleepTime)
     
     counter +=1
+
+# All off
+red.value(0)
+amber.value(0)
+green.value(0)
